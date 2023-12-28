@@ -42,6 +42,7 @@ function shoptheme_woocommerce_modifications(){
         function shoptheme_close_tags_sidebar(){
             echo'</div>';
         }
+        // add_action('woocommerce_after_shop_loop_item_title','the_excerpt',1);
     
         }
 
@@ -62,7 +63,7 @@ function shoptheme_woocommerce_modifications(){
         }
 
 
-        // add_action('woocommerce_after_shop_loop_item_title','the_excerpt',1);
+        
 
 
 }
