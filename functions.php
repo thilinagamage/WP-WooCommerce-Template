@@ -101,47 +101,4 @@ function wpdev_config(){
 
 add_action('after_setup_theme', 'wpdev_config', 0); 
 
-
-
-
-// add div elemnts for product archive page 
-add_action('woocommerce_before_main_content','shoptheme_open_conatiner',5);
-
-function shoptheme_open_conatiner(){
-    echo'<div class="container shop-content">
-            <div class="row">
-    ';
-}
-
-
-
-add_action('woocommerce_after_main_content','shoptheme_close_conatiner',5);
-
-function shoptheme_close_conatiner(){
-    echo ' </div></div>';
-
-}
-
-add_action('woocommerce_before_main_content','shoptheme_add_tags_sidebar',6);
-function shoptheme_add_tags_sidebar(){
-    echo'<div class="sidebar-shop col-lg-3 col-md-4 order-2 order-md-2">';
-}
-
-remove_action('woocommerce_sidebar','woocommerce_get_sidebar',);
-
-add_action('woocommerce_before_main_content','woocommerce_get_sidebar',7);
-
-add_action('woocommerce_before_main_content','shoptheme_close_tags_sidebar',8);
-function shoptheme_close_tags_sidebar(){
-    echo'</div>';
-}
-
-add_action('woocommerce_before_main_content','shoptheme_add_shop_tags',9);
-function shoptheme_add_shop_tags(){
-    echo'<div class="col-lg-9 col-md-8 order-1 order-md-2">';
-}
-
-add_action('woocommerce_before_main_content','shoptheme_close_shop_tags',4);
-function shoptheme_close_shop_tags(){
-    echo'</div>';
-}
+require get_template_directory() .'/inc/wc-modifications.php';
